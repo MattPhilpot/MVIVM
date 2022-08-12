@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.aa.mvivm.main.vm.MainViewModel" />
+
+        <import type="com.aa.mvivm.main.vm.MainAction"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeStepGranularity="1sp"
+            bind:setTextWith="@{viewmodel.state.counter}"
+            android:clickable="true"
+            android:onClick="@{() -> viewmodel.dispatchAction(MainAction.IncreaseCounterClicked.INSTANCE)}"
+            bind:onDefaultLongClick="@{() -> viewmodel.dispatchAction(MainAction.ResetCounterClicked.INSTANCE)}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
