@@ -11,7 +11,9 @@ import com.aa.mvivm.main.vm.MainViewModel
 import com.aa.mvivm.mvi.view.MviActivity
 import com.aa.mvivm.mvi.vm.Command
 import com.aa.mvivm.mvi.vm.MviViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : MviActivity() {
 
     private val viewmodel by viewModels<MainViewModel>()

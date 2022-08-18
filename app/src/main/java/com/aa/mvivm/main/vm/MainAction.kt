@@ -6,4 +6,5 @@ import com.aa.mvivm.mvi.vm.Action
 sealed class MainAction : Action() {
     object IncreaseCounterClicked : MainAction()
     object ResetCounterClicked : MainAction()
+    object GetEntries : MainAction()
 }
